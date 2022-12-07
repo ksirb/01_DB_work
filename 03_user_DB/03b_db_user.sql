@@ -19,13 +19,32 @@ CREATE TABLE IF NOT EXISTS boo.users
 DESCRIBE boo.users;
 
 /* Daten */
+-- Besser: PWDS verschlüsselt, zB. als SAH1-Hash
 INSERT INTO
     boo.users(firstName,familyName,userName,userPwd)
 VALUES 
-    ("Max","Mütze","max","1234"),
-    ("Maxine","Mütze","maxine","#7xD0"),
-    ("Max","Mützerich","maxl","user1234")
+    ("Max","Mütze","max",SHA1("1234")),
+    ("Maxine","Mütze","maxine",SHA1("#7xD0")),
+    ("Max","Mützerich","maxl",SHA1("user1234"))
 ;
 
 /*Inhalte : Ergebnistabelle */
+SELECT * FROM boo.users;
+
+/* Änderungen an besteheneder Tabelle / Struktur */
+ALTER TABLE
+    boo.users
+ADD
+    userPLZ INT(5) NOT NULL DEFAULT 0
+;
+
+/* Struktur & Inhalte */
+DESCRIBE boo.users;
+SELECT * FROM boo.users;
+
+/* Update von Daten */
+UPDATE boo.users SET userPLZ = 70367 WHERE firstName = "Max";
+UPDATE boo.users SET userPLZ = 70362 WHERE id = 2;
+
+/* Inhalte : Ergebnistabelle */
 SELECT * FROM boo.users;
