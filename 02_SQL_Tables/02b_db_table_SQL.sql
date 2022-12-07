@@ -26,7 +26,7 @@ SELECT * FROM boo.test;
 
 
 -- Doppelte Datensätze werden zugelassen!
-INSERT INTO boo.test(age,name) VALUES (35,"Alonzo");
-INSERT INTO boo.test(age,name) VALUES (35,"Alonzo");
+INSERT INTO boo.test(age,name) VALUES (31,"Alonzo");
+INSERT INTO boo.test(age,name) VALUES (30,"Alonzo");
 
 SELECT * FROM boo.test;

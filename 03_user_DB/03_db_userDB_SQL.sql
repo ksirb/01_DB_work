@@ -1,0 +1,6 @@
+/* USER DB Vers. 1 */
+
+SHOW DATABASES;
+
+/* DB */
+DROP DATABASE IF EXISTS boo;
